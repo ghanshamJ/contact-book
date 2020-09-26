@@ -1,0 +1,52 @@
+<style>
+  .textClass {
+    padding: 10px;
+    border-radius: 20px;
+    border-color: blueviolet;
+  }
+</style>
+<div>
+  <h4>&nbsp; &nbsp;Add new Contact</h4>
+  &nbsp; &nbsp;
+  <input
+    class="textClass"
+    #name
+    type="text"
+    placeholder="Enter Name"
+    id="name"
+  /><br /><br />
+  &nbsp; &nbsp;
+  <input
+    class="textClass"
+    #mobile
+    placeholder="Enter mobile"
+    type="number"
+    id="contact"
+  /><br /><br />
+  &nbsp; &nbsp;
+  <input
+    class="textClass"
+    #email
+    placeholder="Enter Email"
+    type="email"
+    id="email"
+  /><br /><br />
+  &nbsp; &nbsp;
+  <button
+    class="btn-success textClass"
+    (click)="addContact(name.value, mobile.value, email.value)"
+  >
+    Add
+  </button>
+  &nbsp; &nbsp;
+  <button
+    class="btn-danger textClass"
+    (click)="name.value = ''; email.value = ''; mobile.value = ''"
+  >
+    Reset
+  </button>
+  <div *ngIf="isAdded; else elseBlock">
+    Contact Added Successfully.
+    <ng-template #elseBlock></ng-template>
+  </div>
+</div>

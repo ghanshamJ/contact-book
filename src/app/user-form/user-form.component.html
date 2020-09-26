@@ -1,0 +1,71 @@
+<style>
+  .textClass {
+    padding: 10px;
+    border-radius: 20px;
+    border-color: blueviolet;
+  }
+</style>
+
+<div class="displayTable">
+  <div class="displayTableCell" style="padding-left: 10px">
+    <div class="authBlock">
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="email"
+          class="textClass"
+          style="width: 280px"
+          placeholder="Email Address"
+          #userEmail
+          required
+        />
+      </div>
+      <br />
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="password"
+          class="textClass"
+          style="width: 280px"
+          placeholder="Password"
+          #userPwd
+          required
+        />
+      </div>
+      <br />
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="button"
+          class="btn-primary textClass"
+          value="Sign Up"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)"
+        />
+        &nbsp;
+        <button
+          type="button"
+          class="btn-primary textClass"
+          style="background-color: gray"
+          (click)="authService.GoogleAuth()"
+        >
+          <i class="fab fa-google-plus-g"></i>
+          Continue with Google
+        </button>
+      </div>
+      <br />
+
+      <div class="redirectToLogin">
+        &nbsp;&nbsp;&nbsp;
+        <span
+          >Already have an account?<span
+            style="color: blue"
+            class="redirect"
+            routerLink="/sign-in"
+          >
+            Log In</span
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>

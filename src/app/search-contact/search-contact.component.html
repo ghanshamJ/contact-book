@@ -1,0 +1,54 @@
+<style>
+  .textClass {
+    padding: 10px;
+    border-radius: 20px;
+    border-color: blueviolet;
+  }
+  .data {
+    font-size: 15px;
+  }
+</style>
+
+<div style="padding-right: 10px; padding-left: 10px">
+  <input
+    class="textClass"
+    #qry
+    placeholder="search"
+    type="text"
+    (keyup)="toggleDisplay(qry.value)"
+    id="qry"
+  /><br /><br />
+  <table style="border: 1" class="table table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+    </tr>
+    <tbody class="data" *ngFor="let contact of contacts | async">
+      <tr
+        *ngIf="
+          (contact.name === undefined
+            ? false
+            : contact.name
+                .toLowerCase()
+                .includes(qry.value.trim().toLowerCase())) ||
+            (contact.mobile === undefined
+              ? false
+              : contact.mobile
+                  .toLowerCase()
+                  .includes(qry.value.trim().toLowerCase())) ||
+            (contact.email === undefined
+              ? false
+              : contact.email
+                  .toLowerCase()
+                  .includes(qry.value.trim().toLowerCase()));
+          else break
+        "
+      >
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.mobile }}</td>
+        <td>{{ contact.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

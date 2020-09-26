@@ -1,0 +1,27 @@
+<!-- Sidebar navigation -->
+<div style="padding-left: 10px; padding-right: 10px">
+  <div class="pt-3 pb-2 mb-3 border-bottom">
+    <h5>Profile</h5>
+  </div>
+  <!-- Show user data when logged in -->
+  <div class="row" *ngIf="authService.userData as user">
+    <div class="col-md-12">
+      <div class="media">
+        <img
+          style="width: 100px; height: 100px"
+          class="align-self-start mr-5 img-thumbnail rounded-circle"
+          src="{{
+            user.photoURL ? user.photoURL : '/assets/images/profile.jpg'
+          }}"
+          alt="{{ user.displayName }}"
+        />
+        <div class="media-body">
+          <strong>{{ user.displayName ? " " : " " }}</strong>
+          <p>
+            <strong>{{ user.email }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

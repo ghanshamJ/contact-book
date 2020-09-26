@@ -1,0 +1,77 @@
+<style>
+  .textClass {
+    padding: 10px;
+    border-radius: 20px;
+    border-color: blueviolet;
+  }
+</style>
+
+<div class="displayTable">
+  <div class="displayTableCell" style="padding-left: 10px">
+    <div class="authBlock">
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="text"
+          style="width: 280px"
+          class="textClass"
+          placeholder="Username"
+          #userName
+          required
+        />
+      </div>
+      <br />
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="password"
+          class="textClass"
+          style="width: 280px"
+          placeholder="Password"
+          #userPassword
+          required
+        />
+      </div>
+      <br />
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        &nbsp;&nbsp;&nbsp;
+        <input
+          type="button"
+          class="btn-primary textClass"
+          value="Log in"
+          (click)="authService.SignIn(userName.value, userPassword.value)"
+        />
+        &nbsp;
+        <button
+          type="button"
+          class="btn-primary textClass"
+          style="background-color: gray"
+          (click)="authService.GoogleAuth()"
+        >
+          Log in with Google
+        </button>
+      </div>
+
+      <div class="forgotPassword">
+        &nbsp;&nbsp;&nbsp;
+        <span style="color: blue" routerLink="/forgot-password"
+          >Forgot Password?</span
+        >
+      </div>
+    </div>
+
+    <div class="redirectToLogin">
+      &nbsp;&nbsp;&nbsp;
+      <span
+        >Don't have an account?<span
+          style="color: blue"
+          class="redirect"
+          routerLink="/create-account"
+        >
+          Sign Up</span
+        ></span
+      >
+    </div>
+  </div>
+</div>
